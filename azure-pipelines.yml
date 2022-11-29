@@ -7,7 +7,7 @@ trigger:
 - feature/92556-setup-spm
 
 pool:
-  vmImage: ubuntu-latest
+  vmImage: macos-12
 
 steps:
 - script: echo Hello, world!
