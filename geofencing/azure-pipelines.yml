@@ -10,18 +10,24 @@ steps:
     clean: true
     lfs: true
     displayName: Clone repository
-    .Package(url: "https://github.com/Azure/SwiftPM-AzureCore.git", branch: "main")
 
   - script: swift package resolve
+    workingDirectory: geofencing
     failOnStderr: true
     displayName: swift package resolve
 
+  - script: swift build 
+    workingDirectory: geofencing
+    failOnStderr: true
+    displayName: swift build
+    
   - script: swift build --build-tests
+    workingDirectory: geofencing
     failOnStderr: true
     displayName: swift build tests
 
   - script: swift test
 # setting failOnStderr: true will cause failure
 # because 'swift test' writes content to stderr
-    failOnStderr: true
+# failOnStderr: true
     displayName: swift test
