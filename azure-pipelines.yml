@@ -3,8 +3,8 @@
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
 
-trigger:
-- feature/92556-setup-spm
+# trigger:
+# - feature/92556-setup-spm
 
 # Build and test swift packages with GitVersion
 
