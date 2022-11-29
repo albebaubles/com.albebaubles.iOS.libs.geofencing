@@ -17,7 +17,7 @@ pool:
 
 steps:
     - task: GitVersion@5
-        displayName: GitVersion
+    displayName: GitVersion
 
 - script: swift package resolve
     failOnStderr: true
