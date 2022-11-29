@@ -1,6 +1,6 @@
 # Geofencing
 
-A description of this package.
+This is the default package for handling geo fence work
 
 
 
