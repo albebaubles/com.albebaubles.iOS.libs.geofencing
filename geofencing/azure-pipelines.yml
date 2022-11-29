@@ -27,6 +27,7 @@ steps:
     displayName: swift build tests
 
   - script: swift test
+    workingDirectory: geofencing
 # setting failOnStderr: true will cause failure
 # because 'swift test' writes content to stderr
 # failOnStderr: true
