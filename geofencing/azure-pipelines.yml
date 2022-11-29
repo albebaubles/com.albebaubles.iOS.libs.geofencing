@@ -10,10 +10,11 @@ steps:
     clean: true
     lfs: true
     displayName: Clone repository
+    .Package(url: "https://github.com/Azure/SwiftPM-AzureCore.git", branch: "main")
 
-#  - script: swift package resolve
-#    failOnStderr: true
-#    displayName: swift package resolve
+  - script: swift package resolve
+    failOnStderr: true
+    displayName: swift package resolve
 
   - script: swift build --build-tests
     failOnStderr: true
