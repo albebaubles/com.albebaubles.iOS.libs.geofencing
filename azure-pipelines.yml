@@ -1,33 +1,25 @@
-# Starter pipeline
-# Start with a minimal pipeline that you can customize to build and deploy your code.
-# Add steps that build, run tests, deploy, and more:
-# https://aka.ms/yaml
-
-# trigger:
-# - feature/92556-setup-spm
-
-# Build and test swift packages with GitVersion
-
 trigger:
-    - feature/92556-setup-spm
-    - main
+  - feature/92556-setup-spm
+  - main
 
 pool:
-    vmImage: macos-latest
+  vmImage: macos-latest
 
 steps:
-    - task: GitVersion@5
-    displayName: GitVersion
+  - checkout: self
+    clean: true
+    lfs: true
+    displayName: Clone repository
 
-- script: swift package resolve
+  - script: swift package resolve
     failOnStderr: true
     displayName: swift package resolve
 
-- script: swift build --build-tests
+  - script: swift build --build-tests
     failOnStderr: true
     displayName: swift build --build-tests
 
-- script: swift test
+  - script: swift test
 # setting failOnStderr: true will cause failure
 # because 'swift test' writes content to stderr
 #  failOnStderr: true
