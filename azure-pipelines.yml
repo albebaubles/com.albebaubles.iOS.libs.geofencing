@@ -11,16 +11,16 @@ steps:
     lfs: true
     displayName: Clone repository
 
-#   - script: swift package resolve
-#     failOnStderr: true
-#     displayName: swift package resolve
+  - script: swift package resolve
+    failOnStderr: true
+    displayName: swift package resolve
 
-#   - script: swift build --build-tests
-#     failOnStderr: true
-#     displayName: swift build tests
+  - script: swift build --build-tests
+    failOnStderr: true
+    displayName: swift build tests
 
   - script: swift test
 # setting failOnStderr: true will cause failure
 # because 'swift test' writes content to stderr
-#  failOnStderr: true
+    failOnStderr: true
     displayName: swift test
