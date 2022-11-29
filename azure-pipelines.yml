@@ -17,7 +17,7 @@ steps:
 
   - script: swift build --build-tests
     failOnStderr: true
-    displayName: swift build --build-tests
+    displayName: swift build tests
 
   - script: swift test
 # setting failOnStderr: true will cause failure
