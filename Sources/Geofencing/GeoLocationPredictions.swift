@@ -1,9 +1,4 @@
-	//
-	//  GeoLocationPredictions.swift
-	//  Fencing
-	//
-	//  Created by jayson.coppo on 11/15/22.
-	//
+
 
 import Foundation
 import CoreLocation
