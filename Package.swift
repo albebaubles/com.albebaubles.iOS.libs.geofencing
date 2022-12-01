@@ -4,7 +4,7 @@
 import PackageDescription
 
 let package = Package(
-  name: "com.prepass.mobile.ios.libs",
+  name: "com.prepass.mobile.ios.libs.geofencing",
   platforms: [
 	 .iOS(.v16),
   ],
@@ -23,7 +23,7 @@ let package = Package(
 	 // Targets can depend on other targets in this package, and on products in packages this package depends on.
 	 .target(
 		name: "GeoFencing",
-		exclude: ["DISTRIBUTION.md"]),
+		dependencies: []),
 	 .testTarget(
 		name: "GeoFencingTests",
 		dependencies: ["GeoFencing"]),
