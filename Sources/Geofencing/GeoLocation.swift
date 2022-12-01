@@ -1,9 +1,3 @@
-//
-//  File.swift
-//  
-//
-//  Created by Alan.Corbett on 11/30/22.
-//
 
 import Foundation
 import CoreLocation
