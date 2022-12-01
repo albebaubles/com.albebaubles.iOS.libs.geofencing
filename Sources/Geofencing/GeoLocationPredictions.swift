@@ -8,6 +8,7 @@
 import Foundation
 import CoreLocation
 
+@available(iOS 15, macOS 13, *)
 class GeoLocationPredictions {
 	private let updateFrequency: Double = 0.1 // seconds
 

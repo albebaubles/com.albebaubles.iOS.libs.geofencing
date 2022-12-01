@@ -1,10 +1,13 @@
 # GeoFencing
 
-This is the default package for handling geo fence work
+This is the **default package** for handling geo fence work.
 
+<a name="Installation"></a>
+## Installation
 
+**Swift Package Manager** (Xcode 11 and above)
 
-References:
-[Developing a Swift package in tandem with an app](https://developer.apple.com/documentation/xcode/developing-a-swift-package-in-tandem-with-an-app) 
+1. Select **File** > **Swift Packages** > **Add Package Dependency…** from the **File** menu.
+2. Paste `url` in the dialog box.
+3. Follow the Xcode's instruction to complete the installation.
 
-[Creating a standalone Swift package with Xcode](https://developer.apple.com/documentation/xcode/creating-a-standalone-swift-package-with-xcode)

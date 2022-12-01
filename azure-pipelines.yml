@@ -1,0 +1,41 @@
+name: com.prepass.mobile.ios.libs.geofencing
+
+trigger:
+  - feature/92553-setup-geofence-lib-project
+  - main
+
+stages:
+  - stage: continuous_integration
+    displayName: Continuous Integration
+    jobs:
+      - job: build_and_test
+        displayName: Validate, Build & Test Package
+        pool:
+          vmImage: macos-12
+        steps:
+        - checkout: self
+          clean: true
+          lfs: true
+          displayName: Clone repository com.prepass.mobile.ios.libs
+
+        - script: swift package resolve 
+          workingDirectory: GeoFencing
+          failOnStderr: true
+          displayName: swift package resolve
+
+        - script: swift build 
+          workingDirectory: GeoFencing
+          failOnStderr: true
+          displayName: swift build
+          
+        - script: swift build --build-tests
+          workingDirectory: GeoFencing
+          failOnStderr: true
+          displayName: swift build tests
+
+        - script: swift test
+          workingDirectory: GeoFencing
+      # setting failOnStderr: true will cause failure
+      # because 'swift test' writes content to stderr
+      # failOnStderr: true
+          displayName: swift test

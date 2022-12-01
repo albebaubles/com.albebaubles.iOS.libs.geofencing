@@ -9,26 +9,54 @@ import Foundation
 import CoreLocation
 import SwiftUI
 
-class GeoLocation: NSObject, ObservableObject {
-//	let predictionMgr = GeoLocationPredictions()
-	@Published var manager: CLLocationManager
+@available(iOS 15, macOS 13, *)
+class GeoLocation: CLLocationManager, ObservableObject {
+
+	let predictionMgr = GeoLocationPredictions()
 
 	override init() {
-		manager = CLLocationManager()
 	}
 
-//	func startLocationUpdates() {
-//		predictionMgr.startLocationUpdates(with: manager) { location in
-////			self.userTrueLocation = location
-////			self.locationDidUpdate?(location)
-////			self.checkForPacketVisits()
-//				// So in here you could check for geofence entry or what have you
-//				// . . .
-//		}
-//	}
-//
-//	func stopLocationUpdates() {
-//		predictionMgr.stopLocationUpdates()
-//	}
+	override func startUpdatingLocation() {
+		startLocationPredicting()
+		super.startUpdatingLocation()
+	}
+
+	override func stopUpdatingLocation() {
+		stopUpdatingLocation()
+		super.stopUpdatingLocation()
+	}
+
+	func startLocationPredicting() {
+		predictionMgr.startLocationUpdates(with: self) { location in
+				// So in here you could check for geofence entry or what have you
+				// . . .
+		}
+	}
+
+	func stopLocationPredicting() {
+		predictionMgr.stopLocationUpdates()
+	}
 }
 
+@available(iOS 15, macOS 13, *)
+extension GeoLocation : CLLocationManagerDelegate {
+	func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+#if !os(macOS)
+		if status == .authorizedAlways || status == .authorizedWhenInUse {
+			startUpdatingLocation()
+			startUpdatingHeading()
+			startMonitoringSignificantLocationChanges()
+		}
+#endif
+	}
+
+	func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+		if locations.first!.horizontalAccuracy > 0 {
+			predictionMgr.timeOfGPSUpdate = Date()
+		}
+	}
+
+	func locationManager(_ manager: CLLocationManager, didUpdateHeading newHeading: CLHeading) {
+	}
+}
