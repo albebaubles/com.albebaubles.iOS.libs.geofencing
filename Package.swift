@@ -4,7 +4,7 @@
 import PackageDescription
 
 let package = Package(
-  name: "com.prepass.mobile.ios.libs.geofencing",
+  name: "GeoFencing",
   platforms: [
 	 .iOS(.v16),
   ],
