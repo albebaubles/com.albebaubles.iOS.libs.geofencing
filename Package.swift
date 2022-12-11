@@ -23,7 +23,7 @@ let package = Package(
 	 // Targets can depend on other targets in this package, and on products in packages this package depends on.
 	 .target(
 		name: "GeoFencing",
-		exclude: ["DISTRIBUTION.md"]),
+		exclude: ["./DISTRIBUTION.md", "./azure-pipelines.yml"]),
 	 .testTarget(
 		name: "GeoFencingTests",
 		dependencies: ["GeoFencing"]),
