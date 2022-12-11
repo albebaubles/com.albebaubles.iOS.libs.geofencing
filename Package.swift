@@ -4,15 +4,15 @@
 import PackageDescription
 
 let package = Package(
-  name: "com.prepass.mobile.ios.libs",
+  name: "GeoFencing",
   platforms: [
 	 .iOS(.v16),
   ],
   products: [
 	 // Products define the executables and libraries a package produces, and make them visible to other packages.
 	 .library(
-		name: "com.prepass.mobile.ios.libs",
-		targets: ["com.prepass.mobile.ios.libs"]),
+		name: "GeoFencing",
+		targets: ["GeoFencing"]),
   ],
   dependencies: [
 	 // Dependencies declare other packages that this package depends on.
